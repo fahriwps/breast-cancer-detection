@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import subprocess
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -110,7 +110,8 @@ class Ui_MainWindow(object):
         self.pushButton_3.setFont(font)
         self.pushButton_3.setObjectName("pushButton_3")
         self.horizontalLayout_3.addWidget(self.pushButton_3)
-        self.pushButton_3.clicked.connect(self.show_predict)
+        #self.pushButton_3.clicked.connect(self.show_predict)
+        self.pushButton_3.clicked.connect(self.test_cmd)
 
         # push button Save File
         self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_3)
@@ -167,21 +168,26 @@ class Ui_MainWindow(object):
         self.label.setPixmap(QtGui.QPixmap(directory))
         self.lineEdit.setText('{}'.format(directory))
         
-        # save file
-        saveFile, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "C:/Users/fahri/Documents/Git/GUI-YOLO-pyqt/images/", 'Image File (*.png *.PNG)')
+        # save file in an absolute path test folder of darknet
+        saveFile, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "C:/Users/fahri/Documents/darknet/test/", 'Image File (*.png *.PNG)')
         pixmap = self.label.pixmap()
         pixmap.save(saveFile)
 
     def save_predict(self):
         savePredict, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save Predict", "", "Image File (*.png *.PNG *.jpeg *.jpg)")
-        # pixmap2 = self.label.pixmap()
-        # pixmap2.save(saveFile)
+        pixmap2 = self.label_2.pixmap()
+        pixmap2.save(savePredict)
 
     # def set_text(self, text):
         # return text
 
     def show_predict(self):
-        self.label_2.setPixmap(QtGui.QPixmap("C:/Users/fahri/Downloads/xox.png"))    
+        self.label_2.setPixmap(QtGui.QPixmap("C:/Users/fahri/Downloads/xox.png"))   # experimental absolute path 
+
+    def test_cmd(self):
+    	train_cmd_str = './darknet detector test voc_gui.data gui.cfg' # must be in one folder with darknet directory
+    	print("\n calling ",train_cmd_str,"\n")
+    	subprocess.call(train_cmd_str,shell=True)
 
 if __name__ == "__main__":
     import sys
