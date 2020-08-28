@@ -17,6 +17,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
         MainWindow.setEnabled(True)
         MainWindow.resize(1900, 900)
+        MainWindow.setWindowFlags(QtCore.Qt.WindowCloseButtonHint)
+
+        #self.setWindowFlag(QtCore.Qt.WindowCloseButtonHint)
        
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -191,7 +194,7 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
-    app = QtWidgets.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv) 
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
