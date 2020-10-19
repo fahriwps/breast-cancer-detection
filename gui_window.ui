@@ -91,17 +91,17 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>700</y>
+      <x>210</x>
+      <y>711</y>
       <width>591</width>
-      <height>61</height>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLineEdit" name="lineEdit">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -119,22 +119,23 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>700</y>
+      <y>710</y>
       <width>161</width>
-      <height>61</height>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="font">
         <font>
+         <family>Segoe UI</family>
          <pointsize>12</pointsize>
         </font>
        </property>
@@ -171,10 +172,14 @@
        </property>
        <property name="font">
         <font>
+         <family>Segoe UI</family>
          <pointsize>22</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 85, 127);</string>
        </property>
        <property name="text">
         <string>PREDICT</string>
@@ -197,6 +202,7 @@
        </property>
        <property name="font">
         <font>
+         <family>Segoe UI</family>
          <pointsize>22</pointsize>
          <weight>50</weight>
          <bold>false</bold>
