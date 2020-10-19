@@ -1,3 +1,9 @@
+################################################################################
+## 
+## Created by: fahriwp
+## 
+################################################################################
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 import subprocess
 
@@ -22,7 +28,10 @@ class Ui_MainWindow(object):
         MainWindow.setEnabled(True)
         MainWindow.resize(1900, 900)
         MainWindow.setWindowFlags(QtCore.Qt.WindowCloseButtonHint)
-
+        MainWindow.setStyleSheet(u"QFrame {\n"
+"	\n"
+"	background-color: rgb(220, 220, 220)\n"
+"}")
         #self.setWindowFlag(QtCore.Qt.WindowCloseButtonHint)
        
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -162,7 +171,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "YOLO GUI"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Neural Sight"))
         self.pushButton_2.setText(_translate("MainWindow", "Browse File"))
         self.pushButton_3.setText(_translate("MainWindow", "PREDICT"))
         self.pushButton.setText(_translate("MainWindow", "SAVE FILE"))
