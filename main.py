@@ -52,7 +52,7 @@ class SplashScreen(QMainWindow):
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.progress)
         # TIMER IN MILLISECONDS
-        self.timer.start(35)
+        self.timer.start(45)
 
         # Initial Text
         self.ui.label_description.setText("Breast Cancer Early Detection")
@@ -62,6 +62,7 @@ class SplashScreen(QMainWindow):
         QtCore.QTimer.singleShot(1500, lambda: self.ui.label_loading.setText("Loading Assets"))
         QtCore.QTimer.singleShot(3000, lambda: self.ui.label_loading.setText("Loading User Interface"))
 
+        self.center()
         self.show()
 
     # APP FUNCTIONS
@@ -87,6 +88,11 @@ class SplashScreen(QMainWindow):
         # INCREASE COUNTER
         counter += 1
 
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

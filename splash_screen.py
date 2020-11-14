@@ -31,7 +31,7 @@ class Ui_SplashScreen(object):
         self.dropShadowFrame.setObjectName(u"dropShadowFrame")
         self.dropShadowFrame.setStyleSheet(u"QFrame{\n"
 "	\n"
-"	background-color: rgb(0, 0, 0);\n"
+"	background-color: rgb(39, 39, 39);\n"
 "	color: rgb(220, 220, 220);\n"
 "	border-radius: 20px;\n"
 "}\n"
@@ -45,7 +45,7 @@ class Ui_SplashScreen(object):
         font.setFamily(u"Segoe UI")
         font.setPointSize(40)
         self.label_title.setFont(font)
-        self.label_title.setStyleSheet(u"color: rgb(30, 215, 96);")
+        self.label_title.setStyleSheet(u"color: rgb(20, 167, 108);")
         self.label_title.setAlignment(Qt.AlignCenter)
         self.label_description = QLabel(self.dropShadowFrame)
         self.label_description.setObjectName(u"label_description")
@@ -54,11 +54,11 @@ class Ui_SplashScreen(object):
         font1.setFamily(u"Segoe UI")
         font1.setPointSize(14)
         self.label_description.setFont(font1)
-        self.label_description.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_description.setStyleSheet(u"color: rgb(128, 128, 128);")
         self.label_description.setAlignment(Qt.AlignCenter)
         self.progressBar = QProgressBar(self.dropShadowFrame)
         self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setGeometry(QRect(70, 240, 561, 23))
+        self.progressBar.setGeometry(QRect(70, 240, 500, 23))
         self.progressBar.setStyleSheet(u"QProgressBar {\n"
 "\n"
 "}")
@@ -70,7 +70,7 @@ class Ui_SplashScreen(object):
         font1.setFamily(u"Segoe UI")
         font1.setPointSize(6)
         self.label_credit.setFont(font1)
-        self.label_credit.setStyleSheet(u"color: rgb(197, 197, 197);")
+        self.label_credit.setStyleSheet(u"color: rgb(255, 250, 250);")
         self.label_credit.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.label_loading = QLabel(self.dropShadowFrame)
         self.label_loading.setObjectName(u"label_loading")
@@ -79,7 +79,7 @@ class Ui_SplashScreen(object):
         font2.setFamily(u"Segoe UI")
         font2.setPointSize(12)
         self.label_loading.setFont(font2)
-        self.label_loading.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_loading.setStyleSheet(u"color: rgb(255, 250, 250);")
         self.label_loading.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.dropShadowFrame)
@@ -95,7 +95,7 @@ class Ui_SplashScreen(object):
         SplashScreen.setWindowTitle(QCoreApplication.translate("SplashScreen", u"MainWindow", None))
         self.label_title.setText(QCoreApplication.translate("SplashScreen", u"<strong>Neural</strong> Sight", None))
         self.label_description.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:14pt;\">Breast Cancer Early Detector</span></p></body></html>", None))
-        self.label_credit.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:9pt; font-weight:600;\">Created:</span><span style=\" font-size:9pt;\"> fahriwp</span></p></body></html>", None))
+        #self.label_credit.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:9pt; font-weight:600;\">Created:</span><span style=\" font-size:9pt;\"> fahriwp</span></p></body></html>", None))
         self.label_loading.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:12pt;\">Please Wait</span></p></body></html>", None))
     # retranslateUi
 

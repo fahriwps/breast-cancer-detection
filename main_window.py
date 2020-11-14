@@ -5,6 +5,7 @@
 ################################################################################
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 import subprocess
 
 try:
@@ -179,29 +180,24 @@ class Ui_MainWindow(object):
         self.actionAbout.setText(_translate("MainWindow", "About"))
 
     def browse_file(self):
-        directory, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Browse File", "", 'Image File (*.png *.PNG)')
+        directory, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Browse File", "", 'Image File (*.png *.PNG *.jpg *.JPG)')
         print(directory)
         self.label.setPixmap(QtGui.QPixmap(directory))
         self.lineEdit.setText('{}'.format(directory))
         
         # save file in an absolute path test folder of darknet
-        saveFile, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "C:/Users/fahri/Documents/darknet/test/", 'Image File (*.png *.PNG)')
+        saveFile, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "/home/fahriprs/darknet/data/data.jpg", 'Image File (*.png *.PNG *.jpg *.JPG)')
         pixmap = self.label.pixmap()
         pixmap.save(saveFile)
 
     def save_predict(self):
-        savePredict, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save Predict", "", "Image File (*.png *.PNG *.jpeg *.jpg)")
+        savePredict, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save Predict", "", "Image File (*.png *.PNG *.jpg *.JPG)")
         pixmap2 = self.label_2.pixmap()
         pixmap2.save(savePredict)
-
-    # def set_text(self, text):
-        # return text
-
-    def show_predict(self):
-        self.label_2.setPixmap(QtGui.QPixmap("C:/Users/fahri/Downloads/xox.png"))   # experimental absolute path 
-
+    
     def test_cmd(self):
-    	train_cmd_str = './darknet detector test voc_gui.data gui.cfg' # must be in one folder with darknet directory
-    	print("\n calling ",train_cmd_str,"\n")
-    	subprocess.call(train_cmd_str,shell=True)
-
+        train_cmd_str = './darknet detector test cfg/obj.data cfg/custom.cfg custom.weights data/data.jpg -dont_show' # must be in one folder with darknet directory
+        print("\n calling ", train_cmd_str,"\n")
+        subprocess.call(train_cmd_str,shell=True)
+        imgDetect = QPixmap('predictions.jpg')
+        self.label_2.setPixmap(QtGui.QPixmap(imgDetect))
