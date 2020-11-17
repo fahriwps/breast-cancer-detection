@@ -1,8 +1,8 @@
 ################################################################################
 ## 
 ## Created by: fahriwp
-## Compile this file as chmod -x run.py
-## Run this file as ./run.py
+## Compile this file as chmod -x main.py
+## Run this file as ./main.py
 ################################################################################
 
 import sys
