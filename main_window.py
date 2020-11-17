@@ -5,7 +5,7 @@
 ################################################################################
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QIcon
 import subprocess
 
 try:
@@ -129,6 +129,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.pushButton_3)
         #self.pushButton_3.clicked.connect(self.show_predict)
         self.pushButton_3.clicked.connect(self.test_cmd)
+        self.pushButton_3.setIcon(QIcon('search.png'))
 
         # push button Save File
         self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_3)
@@ -146,6 +147,7 @@ class Ui_MainWindow(object):
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout_3.addWidget(self.pushButton)
         self.pushButton.clicked.connect(self.save_predict)
+        self.pushButton.setIcon(QIcon('save.png'))
 
         # status bar
         MainWindow.setCentralWidget(self.centralwidget)
