@@ -1,6 +1,6 @@
 ################################################################################
 ## 
-## Created by: fahriwp
+## Created by: fahriwps
 ## Compile this file as chmod -x run.py
 ## Run this file as ./run.py
 ################################################################################
@@ -27,7 +27,14 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-         
+        self.center()
+
+    def center(self):
+        setGeometry = self.frameGeometry()
+        centerGeometry = QDesktopWidget().availableGeometry().center()
+        setGeometry.moveCenter(centerGeometry)
+        self.move(setGeometry.topLeft())
+
 # SPLASH SCREEN CLASS
 class SplashScreen(QMainWindow):
     def __init__(self):
@@ -89,10 +96,10 @@ class SplashScreen(QMainWindow):
         counter += 1
 
     def center(self):
-        qr = self.frameGeometry()
-        cp = QDesktopWidget().availableGeometry().center()
-        qr.moveCenter(cp)
-        self.move(qr.topLeft())
+        setGeometry = self.frameGeometry()
+        centerGeometry = QDesktopWidget().availableGeometry().center()
+        setGeometry.moveCenter(centerGeometry)
+        self.move(setGeometry.topLeft())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
