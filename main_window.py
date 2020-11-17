@@ -1,6 +1,6 @@
 ################################################################################
 ## 
-## Created by: fahriwp
+## Created by: fahriwps
 ## 
 ################################################################################
 
@@ -127,7 +127,6 @@ class Ui_MainWindow(object):
         self.pushButton_3.setFont(font)
         self.pushButton_3.setObjectName("pushButton_3")
         self.horizontalLayout_3.addWidget(self.pushButton_3)
-        #self.pushButton_3.clicked.connect(self.show_predict)
         self.pushButton_3.clicked.connect(self.test_cmd)
         self.pushButton_3.setIcon(QIcon('search.png'))
 
