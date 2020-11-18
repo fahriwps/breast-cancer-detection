@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
         self.lineEdit.setText('{}'.format(directory))
         
         # save file in an absolute path test folder of darknet
-        saveFile, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "/home/fahriprs/darknet/data/data.jpg", 'Image File (*.png *.PNG *.jpg *.JPG)')
+        saveFile, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "/home/fahriprs/darknet/data/data.jpg", 'Image File (*.jpg *.JPG)')
         pixmap = self.label.pixmap()
         pixmap.save(saveFile)
 
