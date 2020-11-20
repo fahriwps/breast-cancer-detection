@@ -93,7 +93,7 @@ class Ui_SplashScreen(object):
 
     def retranslateUi(self, SplashScreen):
         SplashScreen.setWindowTitle(QCoreApplication.translate("SplashScreen", u"MainWindow", None))
-        self.label_title.setText(QCoreApplication.translate("SplashScreen", u"<strong>Neural</strong> Sight", None))
+        self.label_title.setText(QCoreApplication.translate("SplashScreen", u"<strong>Neural</strong>SIGHT", None))
         self.label_description.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:14pt;\">Breast Cancer Early Detector</span></p></body></html>", None))
         self.label_credit.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:9pt; font-weight:600;\">Created:</span><span style=\" font-size:9pt;\"> fahriwp</span></p></body></html>", None))
         self.label_loading.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:12pt;\">Please Wait</span></p></body></html>", None))
