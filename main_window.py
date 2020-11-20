@@ -6,6 +6,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtCore import QCoreApplication
 import subprocess
 
 try:
@@ -38,7 +39,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 941, 671))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 50, 941, 671))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -54,7 +55,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.label)
 
         self.horizontalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(960, 10, 931, 671))
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(960, 50, 931, 671))
         self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -70,11 +71,30 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.label_2)
 
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(220, 700, 591, 61))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(210, 740, 591, 31))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
+
+        # INPUT TEXT
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QtCore.QRect(350, 10, 281, 31))
+        font3 = QtGui.QFont()
+        font3.setFamily(u"Segoe UI")
+        font3.setPointSize(12)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.label_3.setFont(font3)
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+
+        # OUTPUT TEXT
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QtCore.QRect(1330, 10, 281, 31))
+        self.label_4.setFont(font3)
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
 
         # path column
         self.lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget_2)
@@ -85,7 +105,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.lineEdit)
         
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(40, 700, 161, 61))
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(30, 740, 161, 31))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -106,7 +126,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.clicked.connect(self.browse_file)
 
         self.horizontalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(1100, 700, 771, 91))
+        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(1100, 740, 771, 91))
         self.horizontalLayoutWidget_3.setObjectName("horizontalLayoutWidget_3")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_3)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -173,12 +193,14 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Neural Sight"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "NeuralSIGHT"))
         self.pushButton_2.setText(_translate("MainWindow", "Browse File"))
         self.pushButton_3.setText(_translate("MainWindow", "PREDICT"))
         self.pushButton.setText(_translate("MainWindow", "SAVE FILE"))
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
         self.actionAbout.setText(_translate("MainWindow", "About"))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"INPUT", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"OUTPUT", None))
 
     def browse_file(self):
         directory, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Browse File", "", 'Image File (*.png *.PNG *.jpg *.JPG)')
