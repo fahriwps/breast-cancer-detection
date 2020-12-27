@@ -147,7 +147,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setFont(font)
         self.pushButton_3.setObjectName("pushButton_3")
         self.horizontalLayout_3.addWidget(self.pushButton_3)
-        self.pushButton_3.clicked.connect(self.test_cmd)
+        self.pushButton_3.clicked.connect(self.predict)
         self.pushButton_3.setIcon(QIcon('search.png'))
 
         # push button Save File
@@ -218,7 +218,7 @@ class Ui_MainWindow(object):
         pixmap2 = self.label_2.pixmap()
         pixmap2.save(savePredict)
     
-    def test_cmd(self):
+    def predict(self):
         train_cmd_str = './darknet detector test cfg/obj.data cfg/custom.cfg custom.weights data/data.jpg -dont_show' # must be in one folder with darknet directory
         print("\n calling ", train_cmd_str,"\n")
         subprocess.call(train_cmd_str,shell=True)
