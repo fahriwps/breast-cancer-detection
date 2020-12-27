@@ -1,5 +1,5 @@
 # Introduction
- This is a simple GUI for YOLO darknet mass detection for NeuralSight final bachelor capstone project.
+ This is a simple GUI for YOLO darknet mass detection for NeuralSIGHT final bachelor capstone project.
 
 ## Requirements
    - **PyQt5**
@@ -38,3 +38,6 @@ Run `main.py` for YOLO version inference
 
 Run `mainCV.py` for OpenCV version inference 
 
+## NeuralSIGHT Team
+* [fahriwps](https://github.com/fahriwps)
+* [mariojy10](https://github.com/mariojy10)
