@@ -1,6 +1,6 @@
 # Introduction
  This is a simple GUI using PyQt for YOLO darknet mass detection NeuralSIGHT from final bachelor capstone project.
-
+![results](GUI.png)
 ## Requirements
    - **PyQt5**
    - **YOLO darknet installed**
