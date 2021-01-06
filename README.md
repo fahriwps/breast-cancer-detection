@@ -1,5 +1,5 @@
 # Introduction
- This is a simple GUI for YOLO darknet mass detection for NeuralSIGHT final bachelor capstone project.
+ This is a simple GUI using PyQt for YOLO darknet mass detection NeuralSIGHT from final bachelor capstone project.
 
 ## Requirements
    - **PyQt5**
