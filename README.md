@@ -1,6 +1,8 @@
 # Introduction
- This is a simple GUI using PyQt for YOLO darknet mass detection NeuralSIGHT for final bachelor capstone project.
 ![results](GUI.png)
+
+NeuralSIGHT is our final bachelor capstone project for detecting breast cancer mass using YOLO darknet and PyQt.
+
 ## Requirements
    - **PyQt5**
    - **YOLO darknet installed**
