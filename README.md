@@ -28,7 +28,7 @@ conda install -c anaconda pyqt
 
 #### Step 2: Setup Folder
 
-- Move `main.py`,`main_window.py`, and `splashscreen.py` to your darknet folder.
+- Move `mainCV.py`,`main_windowCV.py`, and `splashscreen.py` to your darknet folder.
 - Put your `your-weight.weights` to weights folder.
 
 #### Step 3: Run Program
