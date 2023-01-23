@@ -1,0 +1,2 @@
+Download your pre-trained model weight from this link:
+https://github.com/AlexeyAB/darknet#pre-trained-models
