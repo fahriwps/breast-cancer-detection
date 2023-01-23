@@ -1,8 +1,8 @@
 ################################################################################
 ## 
-## Created by: fahriwps
-## Compile this file as chmod -x run.py
-## Run this file as ./run.py
+## Created by: NeuralSIGHT Team
+## Give execution permission to this file with chmod -x mainCV.py
+## Run this file as ./mainCV.py
 ################################################################################
 
 import sys
