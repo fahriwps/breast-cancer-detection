@@ -5,9 +5,8 @@
 ################################################################################
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QPixmap, QIcon, QImage
+from PyQt5.QtGui import QIcon, QImage
 from PyQt5.QtCore import QCoreApplication
-import subprocess
 import cv2
 
 try:
@@ -25,6 +24,8 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
         
 class Ui_MainWindow(object):
+    """Base class for Main Window UI."""
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
@@ -46,7 +47,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
 
-        # input image
         self.label = QtWidgets.QLabel(self.horizontalLayoutWidget)
         self.label.setFrameShape(QtWidgets.QFrame.Panel)
         self.label.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -62,7 +62,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
 
-        # output image
         self.label_2 = QtWidgets.QLabel(self.horizontalLayoutWidget_2)
         self.label_2.setFrameShape(QtWidgets.QFrame.Panel)
         self.label_2.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -78,7 +77,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
 
-        # INPUT TEXT
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QtCore.QRect(350, 10, 281, 31))
@@ -90,14 +88,12 @@ class Ui_MainWindow(object):
         self.label_3.setFont(font3)
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
 
-        # OUTPUT TEXT
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QtCore.QRect(1330, 10, 281, 31))
         self.label_4.setFont(font3)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
 
-        # path column
         self.lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget_2)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -112,7 +108,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
 
-        # push button Browse File
         self.pushButton_2 = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -133,7 +128,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
 
-        # push button Predict
         self.pushButton_3 = QtWidgets.QPushButton(self.horizontalLayoutWidget_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
@@ -148,11 +142,9 @@ class Ui_MainWindow(object):
         self.pushButton_3.setFont(font)
         self.pushButton_3.setObjectName("pushButton_3")
         self.horizontalLayout_3.addWidget(self.pushButton_3)
-        # self.pushButton_3.clicked.connect(self.test_cmd)
         self.pushButton_3.clicked.connect(self.predict)
         self.pushButton_3.setIcon(QIcon('search.png'))
 
-        # push button Save File
         self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
@@ -170,18 +162,15 @@ class Ui_MainWindow(object):
         self.pushButton.clicked.connect(self.save_predict)
         self.pushButton.setIcon(QIcon('save.png'))
 
-        # status bar
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
 
-        # menu bar
         MainWindow.setStatusBar(self.statusbar)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1900, 25))
         self.menubar.setObjectName("menubar")
 
-        # menu help
         self.menuHelp = QtWidgets.QMenu(self.menubar)
         self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
@@ -205,31 +194,19 @@ class Ui_MainWindow(object):
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"OUTPUT", None))
 
     def browse_file(self):
+        """Browse button functionality to open new image."""
         self.directory, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Browse File", "", 'Image File (*.png *.PNG *.jpg *.JPG)')
         self.label.setPixmap(QtGui.QPixmap(self.directory))
         self.label.setScaledContents(True)
         self.lineEdit.setText('{}'.format(self.directory))
-        
-        # # save file in an absolute path test folder of darknet
-        # saveFile, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "/home/fahriprs/darknet/data/data.jpg", 'Image File (*.jpg *.JPG)')
-        # pixmap = self.label.pixmap()
-        # pixmap.save(saveFile)
 
     def save_predict(self):
+        """Save button functionality to save inference image."""
         savePredict, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save Predict", "", "Image File (*.png *.PNG *.jpg *.JPG)")
         pixmap2 = self.label_2.pixmap()
         pixmap2.save(savePredict)
-    
-    # def test_cmd(self):
-    #     train_cmd_str = './darknet detector test cfg/obj.data cfg/custom.cfg custom.weights data/data.jpg -dont_show' # must be in one folder with darknet directory
-    #     print("\n calling ", train_cmd_str,"\n")
-    #     subprocess.call(train_cmd_str,shell=True)
-    #     imgDetect = QPixmap('predictions.jpg')
-    #     self.label_2.setPixmap(QtGui.QPixmap(imgDetect))
 
-    def predict(self):
-        
-        def draw_bboxs(img,classes,confidences,boxes):    
+    def draw_bboxs(self, img, classes, confidences, boxes, names):    
             for class_id,confidence,box in zip(classes.flatten(),confidences.flatten(),boxes):
                 label = '%.2f' % confidence
                 label = '%s: %s' % (names[class_id], label)
@@ -239,7 +216,9 @@ class Ui_MainWindow(object):
                 cv2.rectangle(img, box, color=(0, 255, 0), thickness=3)
                 cv2.rectangle(img, (left, top - label_size[1]), (left + label_size[0], top + base_line), (255, 255, 255), cv2.FILLED)
                 cv2.putText(img, label, (left, top), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 0, 0), 2)
-        
+
+    def predict(self):
+        """Main inference function responsible for predicting image."""
         obj_names = "data/obj.names"
         with open(obj_names,'r') as file:
             names = file.read().rstrip("\n").split('\n')
@@ -248,6 +227,7 @@ class Ui_MainWindow(object):
         with open(cfg, 'r') as f:
             lines = f.readlines()
             lines = [line.strip() for line in lines]
+
         width = list(filter(lambda x: "width" in x, lines))[0]
         width = int(width.split('=',1)[-1])
         height = list(filter(lambda x: "height" in x, lines))[0]
@@ -266,8 +246,7 @@ class Ui_MainWindow(object):
         classes,confidences,boxes = net.detect(self.input_image,confThreshold=confidence,nmsThreshold=nms)
         self.output_image = self.input_image.copy()        
         if not isinstance(classes,tuple):
-            draw_bboxs(self.output_image,classes,confidences,boxes)    
-        
+            self.draw_bboxs(self.output_image,classes,confidences,boxes, names)    
         self.output_image = QImage(self.output_image.data, self.output_image.shape[1], self.output_image.shape[0], QtGui.QImage.Format_RGB888).rgbSwapped()
         self.label_2.setPixmap(QtGui.QPixmap.fromImage(self.output_image))
         self.label_2.setScaledContents(True)

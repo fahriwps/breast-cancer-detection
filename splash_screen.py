@@ -8,15 +8,14 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
-    QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
-    QPixmap, QRadialGradient)
+from PyQt5.QtCore import QCoreApplication, QMetaObject, QRect, Qt
+from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import *
 
 
 class Ui_SplashScreen(object):
+    """Base class for Splash Screen UI."""
+
     def setupUi(self, SplashScreen):
         if not SplashScreen.objectName():
             SplashScreen.setObjectName(u"SplashScreen")
@@ -89,13 +88,10 @@ class Ui_SplashScreen(object):
         self.retranslateUi(SplashScreen)
 
         QMetaObject.connectSlotsByName(SplashScreen)
-    # setupUi
 
     def retranslateUi(self, SplashScreen):
         SplashScreen.setWindowTitle(QCoreApplication.translate("SplashScreen", u"MainWindow", None))
         self.label_title.setText(QCoreApplication.translate("SplashScreen", u"<strong>Neural</strong>SIGHT", None))
-        self.label_description.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:14pt;\">Breast Cancer Early Detector</span></p></body></html>", None))
-        self.label_credit.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:9pt; font-weight:600;\">Created:</span><span style=\" font-size:9pt;\"> fahriwp</span></p></body></html>", None))
+        self.label_description.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:14pt;\">Breast Cancer Early Detection System</span></p></body></html>", None))
+        self.label_credit.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:9pt; font-weight:600;\">Created:</span><span style=\" font-size:9pt;\"> NeuralSIGHT Team</span></p></body></html>", None))
         self.label_loading.setText(QCoreApplication.translate("SplashScreen", u"<html><head/><body><p><span style=\" font-size:12pt;\">Please Wait</span></p></body></html>", None))
-    # retranslateUi
-
