@@ -1,5 +1,5 @@
 ################################################################################
-## 
+##
 ## Created by: NeuralSIGHT Team
 ## Give execution permission to this file with chmod -x mainCV.py
 ## Run this file as ./mainCV.py
@@ -14,6 +14,7 @@ from splash_screen import Ui_SplashScreen
 from main_windowCV import Ui_MainWindow
 
 counter = 0
+
 
 class MainWindow(QMainWindow):
     """Main Class responsible for handling main window."""
@@ -31,10 +32,11 @@ class MainWindow(QMainWindow):
         setGeometry.moveCenter(centerGeometry)
         self.move(setGeometry.topLeft())
 
+
 class SplashScreen(QMainWindow):
     def __init__(self):
         """Class resposible for handling splash screen effect
-        before loading main window. 
+        before loading main window.
         """
 
         QMainWindow.__init__(self)
@@ -53,8 +55,12 @@ class SplashScreen(QMainWindow):
         self.timer.start(45)  # Timer in milisecond
         self.ui.label_description.setText("Breast Cancer Early Detection System")
         self.ui.label_loading.setText("Please Wait")
-        QtCore.QTimer.singleShot(1500, lambda: self.ui.label_loading.setText("Loading Assets"))
-        QtCore.QTimer.singleShot(3000, lambda: self.ui.label_loading.setText("Loading User Interface"))
+        QtCore.QTimer.singleShot(
+            1500, lambda: self.ui.label_loading.setText("Loading Assets")
+        )
+        QtCore.QTimer.singleShot(
+            3000, lambda: self.ui.label_loading.setText("Loading User Interface")
+        )
         self.center()
         self.show()
 
@@ -76,6 +82,7 @@ class SplashScreen(QMainWindow):
         centerGeometry = QDesktopWidget().availableGeometry().center()
         setGeometry.moveCenter(centerGeometry)
         self.move(setGeometry.topLeft())
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
